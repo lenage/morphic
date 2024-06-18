@@ -45,7 +45,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
     // Submit and get response message
     const data = formData || new FormData()
     if (!formData) {
-      data.append('input', query)
+      data.set('input', query)
     }
     const responseMessage = await submit(data, userId)
     setMessages(currentMessages => [...currentMessages, responseMessage])
