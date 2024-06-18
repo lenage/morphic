@@ -77,7 +77,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
   const handleClear = () => {
     setIsGenerating(false)
     setMessages([])
-    setAIMessage({ messages: [], chatId: '', userId: userId})
+    setAIMessage({ messages: [], chatId: '', uid: userId})
     setInput('')
     router.push('/')
   }

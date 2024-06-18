@@ -2,6 +2,7 @@ import { notFound, redirect } from 'next/navigation'
 import { Chat } from '@/components/chat'
 import { getChat } from '@/lib/actions/chat'
 import { AI } from '@/app/actions'
+import { useAppState } from '@/lib/utils/app-state'
 
 export const maxDuration = 60
 
@@ -11,15 +12,8 @@ export interface SearchPageProps {
   }
 }
 
-export async function generateMetadata({ params }: SearchPageProps) {
-  const chat = await getChat(params.id, 'anonymous')
-  return {
-    title: chat?.title.toString().slice(0, 50) || 'Search'
-  }
-}
-
 export default async function SearchPage({ params }: SearchPageProps) {
-  const userId = 'anonymous'
+  const {userId} = useAppState()
   const chat = await getChat(params.id, userId)
 
   if (!chat) {
@@ -34,7 +28,8 @@ export default async function SearchPage({ params }: SearchPageProps) {
     <AI
       initialAIState={{
         chatId: chat.id,
-        messages: chat.messages
+        messages: chat.messages,
+        uid: userId
       }}
     >
       <Chat id={params.id} />
