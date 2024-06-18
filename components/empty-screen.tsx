@@ -15,8 +15,8 @@ const exampleMessages = [
     message: 'What is Apple Intelligence?'
   },
   {
-    heading: 'https://mp.weixin.qq.com/s/pcwjWKMmA6Tvep3i9qwCeQ',
-    message: 'https://mp.weixin.qq.com/s/pcwjWKMmA6Tvep3i9qwCeQ'
+    heading: '阅读公众号文章 https://mp.weixin.qq.com/s/pcwjWKMmA6Tvep3i9qwCeQ',
+    message: '阅读文章 https://mp.weixin.qq.com/s/pcwjWKMmA6Tvep3i9qwCeQ 并总结文章要点'
   },
   {
     heading: 'Tesla vs 小米',
