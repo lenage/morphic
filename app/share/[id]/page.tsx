@@ -24,7 +24,6 @@ export async function generateMetadata({ params }: SharePageProps) {
 
 export default async function SharePage({ params }: SharePageProps) {
   const chat = await getSharedChat(params.id)
-  const { userId } = useAppState()
 
   if (!chat || !chat.sharePath) {
     notFound()
@@ -36,7 +35,6 @@ export default async function SharePage({ params }: SharePageProps) {
         chatId: chat.id,
         messages: chat.messages,
         isSharePage: true,
-        uid: userId
       }}
     >
       <Chat id={params.id} />

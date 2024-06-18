@@ -21,13 +21,15 @@ export const AppStateProvider = ({ children }: { children: ReactNode }) => {
     const generateRandomUserId = () => {
       return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     }
-
     // Check if userId exists in localStorage
-    const storedUserId = localStorage.getItem('userId');
+    const storedUserId = window.localStorage.getItem('userId')
     if (storedUserId) {
-      setUserId(storedUserId);
+      setUserId(storedUserId)
     } else {
-      generateRandomUserId();
+      // Generate and store the random ID
+      const generatedId = generateRandomUserId()
+      window.localStorage.setItem('userId', generatedId)
+      setUserId(generatedId);
     }
   }, []);
 

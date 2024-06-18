@@ -13,8 +13,8 @@ export interface SearchPageProps {
 }
 
 export default async function SearchPage({ params }: SearchPageProps) {
-  const {userId} = useAppState()
-  const chat = await getChat(params.id, userId)
+  const { userId } = useAppState()
+  const chat = await getChat(params.id)
 
   if (!chat) {
     redirect('/')
@@ -29,7 +29,6 @@ export default async function SearchPage({ params }: SearchPageProps) {
       initialAIState={{
         chatId: chat.id,
         messages: chat.messages,
-        uid: userId
       }}
     >
       <Chat id={params.id} />

@@ -272,7 +272,7 @@ async function submit(
 export type AIState = {
   messages: AIMessage[]
   chatId: string
-  uid: string
+  uid?: string
   isSharePage?: boolean
 }
 
@@ -338,7 +338,7 @@ export const AI = createAI<AIState, UIState>({
 
     const chat: Chat = {
       id: chatId,
-      userId: uid,
+      userId: uid || 'anonymous',
       createdAt,
       path,
       title,
