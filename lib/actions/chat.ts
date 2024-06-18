@@ -44,7 +44,7 @@ export async function getChat(id: string, userId: string = 'anonymous') {
 }
 
 export async function clearChats(
-  userId: string = 'anonymous'
+  userId: string = 'anonymous' //TODO(yuan):
 ): Promise<{ error?: string }> {
   const chats: string[] = await redis.zrange(`user:chat:${userId}`, 0, -1)
   if (!chats.length) {

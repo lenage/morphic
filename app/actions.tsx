@@ -27,6 +27,7 @@ import { ErrorCard } from '@/components/error-card'
 
 async function submit(
   formData?: FormData,
+  userId?: string,
   skip?: boolean,
   retryMessages?: AIMessage[]
 ) {
@@ -84,6 +85,7 @@ async function submit(
   if (content) {
     aiState.update({
       ...aiState.get(),
+      uid: userId || 'anonymous',
       messages: [
         ...aiState.get().messages,
         {
@@ -113,6 +115,7 @@ async function submit(
       isCollapsed.done(false)
       aiState.done({
         ...aiState.get(),
+        uid: userId || 'anonymous',
         messages: [
           ...aiState.get().messages,
           {
@@ -269,6 +272,7 @@ async function submit(
 export type AIState = {
   messages: AIMessage[]
   chatId: string
+  uid: string
   isSharePage?: boolean
 }
 
@@ -281,7 +285,8 @@ export type UIState = {
 
 const initialAIState: AIState = {
   chatId: generateId(),
-  messages: []
+  uid: 'anonymous',
+  messages: [],
 }
 
 const initialUIState: UIState = []
@@ -312,9 +317,8 @@ export const AI = createAI<AIState, UIState>({
       return
     }
 
-    const { chatId, messages } = state
+    const { uid, chatId, messages } = state
     const createdAt = new Date()
-    const userId = 'anonymous'
     const path = `/search/${chatId}`
     const title =
       messages.length > 0
@@ -334,13 +338,13 @@ export const AI = createAI<AIState, UIState>({
 
     const chat: Chat = {
       id: chatId,
+      userId: uid,
       createdAt,
-      userId,
       path,
       title,
       messages: updatedMessages
     }
-    await saveChat(chat)
+    await saveChat(chat, uid)
   }
 })
 

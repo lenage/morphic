@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { ChatPanel } from './chat-panel'
 import { ChatMessages } from './chat-messages'
 import { useUIState } from 'ai/rsc'
+import { useAppState } from '@/lib/utils/app-state'
 
 type ChatProps = {
   id?: string

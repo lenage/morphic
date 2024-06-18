@@ -60,13 +60,13 @@ export type AIMessage = {
   id: string
   name?: string
   type?:
-    | 'answer'
-    | 'related'
-    | 'skip'
-    | 'inquiry'
-    | 'input'
-    | 'input_related'
-    | 'tool'
-    | 'followup'
-    | 'end'
+  | 'answer'
+  | 'related'
+  | 'skip'
+  | 'inquiry'
+  | 'input'
+  | 'input_related'
+  | 'tool'
+  | 'followup'
+  | 'end'
 }

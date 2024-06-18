@@ -23,7 +23,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
   const [showEmptyScreen, setShowEmptyScreen] = useState(false)
   const [, setMessages] = useUIState<typeof AI>()
   const [aiMessage, setAIMessage] = useAIState<typeof AI>()
-  const { isGenerating, setIsGenerating } = useAppState()
+  const { isGenerating, setIsGenerating, userId} = useAppState()
   const { submit } = useActions()
   const router = useRouter()
   const inputRef = useRef<HTMLTextAreaElement>(null)
@@ -47,7 +47,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
     if (!formData) {
       data.append('input', query)
     }
-    const responseMessage = await submit(data)
+    const responseMessage = await submit(data, userId)
     setMessages(currentMessages => [...currentMessages, responseMessage])
   }
 
@@ -77,7 +77,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
   const handleClear = () => {
     setIsGenerating(false)
     setMessages([])
-    setAIMessage({ messages: [], chatId: '' })
+    setAIMessage({ messages: [], chatId: '', userId: userId})
     setInput('')
     router.push('/')
   }
@@ -111,6 +111,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
     return null
   }
 
+  //TODO(yuan): set an model select here
   return (
     <div
       className={

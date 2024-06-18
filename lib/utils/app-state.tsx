@@ -6,23 +6,21 @@ const AppStateContext = createContext<
   | {
       isGenerating: boolean
       setIsGenerating: (value: boolean) => void
-      userId?: string
-      setUserId: (value: string | undefined) => void
+      userId: string
+      setUserId: (value: string) => void
     }
   | undefined
 >(undefined)
 
 export const AppStateProvider = ({ children }: { children: ReactNode }) => {
   const [isGenerating, setIsGenerating] = useState(false)
-  const [userId, setUserId] = useState<string | undefined>(undefined);
+  const [userId, setUserId] = useState<string>("anonymous");
 
   useEffect(() => {
     // Generate a random user ID
     const generateRandomUserId = () => {
-      const newUserId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      localStorage.setItem('userId', newUserId);
-      setUserId(newUserId);
-    };
+      return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    }
 
     // Check if userId exists in localStorage
     const storedUserId = localStorage.getItem('userId');
