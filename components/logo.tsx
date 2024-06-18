@@ -18,6 +18,7 @@ export function EmojiLogo({ isShow }: LogoProps) {
       if (!logo || !leftEye || !rightEye) return
 
       const rect = logo.getBoundingClientRect()
+      if (rect.width === 0 || rect.height === 0) return
       const mouseX = event.clientX - rect.left
       const mouseY = event.clientY - rect.top
 
@@ -53,20 +54,24 @@ export function EmojiLogo({ isShow }: LogoProps) {
       clearTimeout(idleTimeout);
     };
   }, []);
-  const showClassName = isShow ? '' : 'hidden'
-  return (
-    <div className={cn("fixed inset-x-0 bottom-10 flex flex-col items-center justify-center py-2 h-screen", showClassName)}>
-      <svg
-        viewBox="0 -10 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-        id="emoji-logo"
-        className="w-48 h-48"
-      >
-        <circle cx="80" cy="10" r="15" fill="#fff" stroke="#0a0a0a" strokeWidth="3"/>
-        <circle cx="125" cy="10" r="15" fill="#fff" stroke="#0a0a0a" strokeWidth="3"/>
-        <circle id="left-eye" cx="80" cy="10" r="5" fill="#0a0a0a" />
-        <circle id="right-eye" cx="125" cy="10" r="5" fill="#0a0a0a" />
-      </svg>
-    </div>
-  )
+
+  if (isShow) {
+    return (
+      <div className="fixed inset-x-0 bottom-10 flex flex-col items-center justify-center py-2 h-screen">
+        <svg
+          viewBox="0 -10 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+          id="emoji-logo"
+          className="w-48 h-48"
+        >
+          <circle cx="80" cy="10" r="15" fill="#fff" stroke="#0a0a0a" strokeWidth="3"/>
+          <circle cx="125" cy="10" r="15" fill="#fff" stroke="#0a0a0a" strokeWidth="3"/>
+          <circle id="left-eye" cx="80" cy="10" r="5" fill="#0a0a0a" />
+          <circle id="right-eye" cx="125" cy="10" r="5" fill="#0a0a0a" />
+        </svg>
+      </div>
+    )
+  } else {
+    return
+  }
 }
