@@ -39,7 +39,7 @@ export const SearchRelated: React.FC<SearchRelatedProps> = ({
       .submitter as HTMLInputElement
     let query = ''
     if (submitter) {
-      formData.append(submitter.name, submitter.value)
+      formData.set(submitter.name, submitter.value)
       query = submitter.value
     }
 
