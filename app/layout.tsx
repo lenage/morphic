@@ -19,7 +19,7 @@ const description =
   'AI-powered answer engine with a generative UI. forked from morphic'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://r3.heyuan.dev'),
+  metadataBase: new URL('https://so.heyuan.dev'),
   title,
   description,
   openGraph: {
