@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter as FontSans } from 'next/font/google'
+import { Anybody, Inter as FontSans } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -7,6 +7,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { Sidebar } from '@/components/sidebar'
 import { Toaster } from '@/components/ui/sonner'
+import { Analytics } from "@vercel/analytics/react"
 import { AppStateProvider } from '@/lib/utils/app-state'
 
 const fontSans = FontSans({
@@ -63,6 +64,7 @@ export default function RootLayout({
             <Toaster />
           </AppStateProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
