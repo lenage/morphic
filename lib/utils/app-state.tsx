@@ -7,14 +7,14 @@ const AppStateContext = createContext<
       isGenerating: boolean
       setIsGenerating: (value: boolean) => void
       userId?: string
-      setUserId: (value: string | null) => void
+      setUserId: (value: string | undefined) => void
     }
   | undefined
 >(undefined)
 
 export const AppStateProvider = ({ children }: { children: ReactNode }) => {
   const [isGenerating, setIsGenerating] = useState(false)
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     // Generate a random user ID
