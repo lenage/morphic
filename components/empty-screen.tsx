@@ -3,20 +3,24 @@ import { ArrowRight } from 'lucide-react'
 
 const exampleMessages = [
   {
+    heading: 'REITs 的不同类型有哪些，它们各自的风险和回报特征是什么？',
+    message: 'REITs 的不同类型有哪些，它们各自的风险和回报特征是什么？'
+  },
+  {
+    heading: '推动 NVIDIA 股价近期上涨的人工智能因素有哪些？',
+    message: '推动 NVIDIA 股价近期上涨的人工智能因素有哪些?'
+  },
+  {
     heading: 'What is Apple Intelligence?',
     message: 'What is Apple Intelligence?'
   },
   {
-    heading: 'Why is Nvidia growing rapidly?',
-    message: 'Why is Nvidia growing rapidly?'
+    heading: 'https://mp.weixin.qq.com/s/pcwjWKMmA6Tvep3i9qwCeQ',
+    message: 'https://mp.weixin.qq.com/s/pcwjWKMmA6Tvep3i9qwCeQ'
   },
   {
-    heading: 'How does the Vercel AI SDK work?',
-    message: 'How does the Vercel AI SDK work?'
-  },
-  {
-    heading: 'Tesla vs Rivian',
-    message: 'Tesla vs Rivian'
+    heading: 'Tesla vs 小米',
+    message: 'Tesla vs 小米'
   }
 ]
 export function EmptyScreen({

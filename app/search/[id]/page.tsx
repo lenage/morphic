@@ -2,7 +2,6 @@ import { notFound, redirect } from 'next/navigation'
 import { Chat } from '@/components/chat'
 import { getChat } from '@/lib/actions/chat'
 import { AI } from '@/app/actions'
-import { useAppState } from '@/lib/utils/app-state'
 
 export const maxDuration = 60
 

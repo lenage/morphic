@@ -207,6 +207,7 @@ async function submit(
       streamText.done()
       aiState.update({
         ...aiState.get(),
+        uid: userId || 'anonymous',
         messages: [
           ...aiState.get().messages,
           {
@@ -229,6 +230,7 @@ async function submit(
 
       aiState.done({
         ...aiState.get(),
+        uid: userId || 'anonymous',
         messages: [
           ...aiState.get().messages,
           {
