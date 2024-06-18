@@ -13,16 +13,17 @@ export interface SearchPageProps {
 }
 
 export default async function SearchPage({ params }: SearchPageProps) {
-  const { userId } = useAppState()
+  //const { userId } = useAppState()
   const chat = await getChat(params.id)
 
   if (!chat) {
     redirect('/')
   }
 
-  if (chat?.userId !== userId) {
-    notFound()
-  }
+  //FIXME(yuan):
+  // if (chat?.userId !== userId) {
+  //   notFound()
+  // }
 
   return (
     <AI
