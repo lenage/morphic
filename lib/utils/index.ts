@@ -61,11 +61,11 @@ export function transformToolMessages(messages: CoreMessage[]): CoreMessage[] {
   return messages.map(message =>
     message.role === 'tool'
       ? {
-          ...message,
-          role: 'assistant',
-          content: JSON.stringify(message.content),
-          type: 'tool'
-        }
+        ...message,
+        role: 'assistant',
+        content: JSON.stringify(message.content),
+        type: 'tool'
+      }
       : message
   ) as CoreMessage[]
 }

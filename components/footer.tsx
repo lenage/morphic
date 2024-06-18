@@ -12,16 +12,7 @@ const Footer: React.FC = () => {
           size={'icon'}
           className="text-muted-foreground/50"
         >
-          <Link href="https://discord.gg/zRxaseCuGq" target="_blank">
-            <SiDiscord size={18} />
-          </Link>
-        </Button>
-        <Button
-          variant={'ghost'}
-          size={'icon'}
-          className="text-muted-foreground/50"
-        >
-          <Link href="https://twitter.com/morphic_ai" target="_blank">
+          <Link href="https://twitter.com/heyuan" target="_blank">
             <SiTwitter size={18} />
           </Link>
         </Button>
