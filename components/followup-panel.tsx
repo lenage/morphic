@@ -37,6 +37,7 @@ export function FollowupPanel() {
     <form
       onSubmit={handleSubmit}
       className="relative flex items-center space-x-1"
+      autoComplete="off"
     >
       <Input
         type="text"
