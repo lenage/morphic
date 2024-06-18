@@ -21,10 +21,10 @@ export function EmojiLogo({ isShow }: LogoProps) {
       const mouseX = event.clientX - rect.left
       const mouseY = event.clientY - rect.top
 
-      const leftEyeX = 80 + ((mouseX - 80) / rect.width) * 5
-      const leftEyeY = 10 + ((mouseY - 10) / rect.height) * 5
-      const rightEyeX = 125 + ((mouseX - 125) / rect.width) * 5
-      const rightEyeY = 10 + ((mouseY - 10) / rect.height) * 5
+      const leftEyeX = 81 + ((mouseX - 80) / rect.width) * 5
+      const leftEyeY = 11 + ((mouseY - 10) / rect.height) * 5
+      const rightEyeX = 126 + ((mouseX - 125) / rect.width) * 5
+      const rightEyeY = 11 + ((mouseY - 10) / rect.height) * 5
 
       leftEye.setAttribute('cx', leftEyeX.toString())
       leftEye.setAttribute('cy', leftEyeY.toString())
